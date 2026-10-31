@@ -1,0 +1,107 @@
+@import 'tailwindcss';
+
+@theme {
+  --font-sans: 'Inter Variable', ui-sans-serif, system-ui, sans-serif;
+  --font-mono: 'JetBrains Mono Variable', ui-monospace, SFMono-Regular, monospace;
+
+  --color-bg: #06080c;
+  --color-panel: #0b0f15;
+  --color-panel-2: #10161e;
+  --color-panel-3: #161d27;
+  --color-line: #1b2330;
+  --color-line-2: #253041;
+  --color-fg: #e7edf5;
+  --color-fg-2: #b4c0cf;
+  --color-muted: #7c8a9c;
+  --color-faint: #4f5b6b;
+  --color-pos: #34d399;
+  --color-pos-2: #10b981;
+  --color-neg: #f87171;
+  --color-warn: #fbbf24;
+  --color-info: #60a5fa;
+  --color-violet: #a78bfa;
+}
+
+:root {
+  color-scheme: dark;
+}
+
+html,
+body {
+  background: var(--color-bg);
+  color: var(--color-fg);
+  font-family: var(--font-sans);
+  font-feature-settings: 'cv11', 'ss01', 'ss03';
+  -webkit-font-smoothing: antialiased;
+}
+
+body {
+  background:
+    radial-gradient(1200px 600px at 85% -10%, rgba(52, 211, 153, 0.06), transparent 60%),
+    radial-gradient(900px 500px at -10% 110%, rgba(96, 165, 250, 0.05), transparent 60%),
+    var(--color-bg);
+  background-attachment: fixed;
+  min-height: 100vh;
+}
+
+.num {
+  font-family: var(--font-mono);
+  font-variant-numeric: tabular-nums;
+  letter-spacing: -0.01em;
+}
+
+::selection {
+  background: rgba(52, 211, 153, 0.25);
+}
+
+* {
+  scrollbar-width: thin;
+  scrollbar-color: #253041 transparent;
+}
+
+input[type='range'] {
+  appearance: none;
+  height: 4px;
+  border-radius: 999px;
+  background: linear-gradient(to right, var(--color-pos) var(--fill, 50%), #1f2836 var(--fill, 50%));
+  outline: none;
+}
+input[type='range']::-webkit-slider-thumb {
+  appearance: none;
+  width: 14px;
+  height: 14px;
+  border-radius: 999px;
+  background: #e7edf5;
+  border: 3px solid var(--color-pos-2);
+  cursor: pointer;
+  box-shadow: 0 0 0 4px rgba(16, 185, 129, 0.15);
+}
+input[type='range']::-moz-range-thumb {
+  width: 10px;
+  height: 10px;
+  border-radius: 999px;
+  background: #e7edf5;
+  border: 3px solid var(--color-pos-2);
+  cursor: pointer;
+}
+
+.fade-in {
+  animation: fadeIn 0.25s ease-out;
+}
+@keyframes fadeIn {
+  from { opacity: 0; transform: translateY(4px); }
+  to { opacity: 1; transform: none; }
+}
+
+.recharts-cartesian-grid line {
+  stroke: #1b2330;
+}
+.recharts-text {
+  fill: #7c8a9c;
+  font-size: 11px;
+  font-family: var(--font-mono);
+}
+.recharts-tooltip-cursor {
+  fill: rgba(255, 255, 255, 0.03);
+}
+.recharts-wrapper:focus, .recharts-surface:focus { outline: none; }
